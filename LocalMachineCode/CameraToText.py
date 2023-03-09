@@ -1,8 +1,17 @@
 from PIL import Image
 import pytesseract
 
+
+# create method to convert image text into variable
 def textConverter(image):
-    pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+    # open image 
     image = Image.open(image)
-    text = pytesseract.image_to_string(image, lang = 'eng')
+    # get text from image
+    text = pytesseract.image_to_string(image, lang='eng')
     return text
+
+
+# ------ For Testing ------
+# txt = textConverter("LocalMachineCode/noText.jpg")
+# txt = textConverter("LocalMachineCode/test1.png")
+# print(txt)
